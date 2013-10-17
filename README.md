@@ -3,21 +3,39 @@ libgdx-quadtree
 
 A very simple implementation of a Quadtree in LibGDX.
 
-In order to easily generate Eclipse or IntelliJ IDEA files, there are modified files from the [LibGDX Gradle Template](https://github.com/innerlogic/libgdx-quadtree) included. 
-The [README](https://github.com/innerlogic/libgdx-quadtree) of the template has detailed instruction on many aspects, but to quickly get up and running, do the following:
+###How To Get Started
 
-Set **ANDROID_HOME** environment variable, then navigate to project directory via command line. 
+First, clone the repo to your desktop or download and extract the master [ZIP](https://github.com/innerlogic/libgdx-quadtree/archive/master.zip) file.
 
-(Required) To grab the proper LibGDX and other dependencies: 
+#### Setup Environment Variables
+Certain environment variable need to be set. Refer to the [LibGDX Prerequisites](https://github.com/libgdx/libgdx/wiki/Prerequisites) wiki entry for instructions on how to install all the needed prerequisites.
+
+  * `JAVA_HOME` (JDK installation directory)
+  * `ANDROID_HOME` (Android SDK installation directory) 
+
+#### Grab the proper LibGDX and other dependencies
+
+In order to manage dependencies and allow for other interesting build/development related tasks, I've incorporated parts of the [LibGDX Gradle Template](https://github.com/libgdx/libgdx-gradle-template). Based on [Gradle](http://www.gradle.org/), this ensures that all 3rd party dependencies are kept up-to-date and prevents the need for JARs and IDE-related files to be in source control; allows the developer to work with the source in whatever environment they feel most comfortable with.
+
+The [README](https://github.com/innerlogic/libgdx-quadtree) of the template has detailed instruction on the many tasks available, but it is rather simple to get up and running. From the project directory in the command line / terminal, run the following command:
 
     gradlew clean
+    
+This will pull in the needed dependencies so you don't have to worry about them later :-)
 
-To generate Eclipse files for the project:
+#### Generate IDE-related Files
+
+The LibGDX Gradle Template makes it very easy to generate files for your IDE of choice.
+
+##### Eclipse
 
     gradlew eclipse
 
-To generate IntelliJ IDEA files for the project:
+Refer to the [Eclipse Usage](https://github.com/libgdx/libgdx-gradle-template#eclipse-usage) portion of the LibGDX Gradle Template wiki for instructions on how to setup for running/debugging.
+
+##### IntelliJ IDEA
 
     gradlew idea
     
-Much more to come!
+Refer to the [IntelliJ IDEA Usage](https://github.com/libgdx/libgdx-gradle-template#intellij-idea-usage) portion of the LibGDX Gradle Template wiki for instructions on how to setup for running/debugging. 
+Also, be sure to ignore any prompt about adding an Android facet.
