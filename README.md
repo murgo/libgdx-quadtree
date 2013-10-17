@@ -19,3 +19,5 @@ To generate Eclipse files for the project:
 To generate IntelliJ IDEA files for the project:
 
     gradlew idea
+    
+Much more to come!
