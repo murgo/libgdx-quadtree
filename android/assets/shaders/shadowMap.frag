@@ -54,7 +54,7 @@ void main(void)
 
         // If we've hit an opaque fragment/pixel (occluder), then get new distance
         // If the new distance is below the current, then we'll use that for our ray
-        float caster = data.a;
+        float caster = sampledFragment.a;
         if (caster > THRESHOLD)
         {
             distance = min(distance, dst);

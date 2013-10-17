@@ -125,7 +125,7 @@ public class GameScreen implements Screen
         // -------------------------------------
         // Set up the game entities
         // -------------------------------------
-        blockArray = new Array<>(true, NUM_BLOCKS);
+        blockArray = new Array<SpriteEntity>(true, NUM_BLOCKS);
         for(int i = 0; i < NUM_BLOCKS; i++)
         {
             blockArray.add(generateValidBlock());
@@ -170,7 +170,7 @@ public class GameScreen implements Screen
 
         // Set up the quad tree
         quadTree = new QuadTreeNode(0, new Rectangle(0, 0, screenWidth, screenWidth));
-        entitiesToCheck = new Array<>(true, QuadTreeNode.MAX_ENTITIES);
+        entitiesToCheck = new Array<SpriteEntity>(true, QuadTreeNode.MAX_ENTITIES);
 
         // Set up shader related things
         occludersFBO = new FrameBuffer(Pixmap.Format.RGBA8888, lightSize, lightSize, false);
@@ -204,7 +204,7 @@ public class GameScreen implements Screen
         SpriteEntity block = new SpriteEntity(_game.assetManager.get(QuadtreeDemo.TEXTURE_BLOCK, Texture.class));
         block.setPosition(MathUtils.random(0, screenWidth - block.getWidth()), MathUtils.random(0, screenHeight - block.getHeight()));
         block.setVelocity(MathUtils.random(-1.0f, 1.0f), MathUtils.random(-1.0f, 1.0f));
-        block.setSpeed(MathUtils.random(0, 0));
+        block.setSpeed(MathUtils.random(20, 200));
 
         return block;
     }
@@ -238,28 +238,36 @@ public class GameScreen implements Screen
 
         _game.batch.setShader(null);
 
-//        for(SpriteEntity currBlock : blockArray)
-//        {
-//            // Render our game entities
-//            _game.batch.setColor(currBlock.getColor());
-//            _game.batch.draw(currBlock.getTexture(), currBlock.getX(), currBlock.getY());
-//
-//            // Set the curr block back to white
-//            currBlock.setColor(Color.WHITE);
-//            _game.batch.setColor(currBlock.getColor());
-//        }
+        // Uncomment to render rectangle sprite entities
+
+        /**
+        for(SpriteEntity currBlock : blockArray)
+        {
+            // Render our game entities
+            _game.batch.setColor(currBlock.getColor());
+            _game.batch.draw(currBlock.getTexture(), currBlock.getX(), currBlock.getY());
+
+            // Set the curr block back to white
+            currBlock.setColor(Color.WHITE);
+            _game.batch.setColor(currBlock.getColor());
+        }
+        */
 
         _game.batch.end();
 
-        //        // Now, render the debug lines for the quad tree
-        //        _game.shapeRenderer.setProjectionMatrix(_game.camera.combined);
-        //
-        //        _game.shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
-        //        quadTree.render(_game.shapeRenderer);
-        //        _game.shapeRenderer.end();
-        //
-        //        // Lastly, attempt the periodic log
-        //        periodicLogger.log();
+        // Uncomment to display Quadtree debug drawing
+
+        /**
+        // Now, render the debug lines for the quad tree
+        _game.shapeRenderer.setProjectionMatrix(_game.camera.combined);
+
+        _game.shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        quadTree.render(_game.shapeRenderer);
+        _game.shapeRenderer.end();
+
+        // Lastly, attempt the periodic log
+        periodicLogger.log();
+        */
     }
 
     private void renderLightsAndShadows()

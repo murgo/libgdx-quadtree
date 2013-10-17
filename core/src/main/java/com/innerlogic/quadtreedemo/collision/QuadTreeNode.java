@@ -39,10 +39,10 @@ public class QuadTreeNode
         this.level = level;
         this.boundary = boundary;
 
-        entities = new Array<>(true, MAX_ENTITIES);
+        entities = new Array<SpriteEntity>(true, MAX_ENTITIES);
 
         // NW, NE, SE, SW (Clockwise)
-        childNodes = new Array<>(true, 4);
+        childNodes = new Array<QuadTreeNode>(true, 4);
 
         if(BOUNDS_CENTER == null)
         {

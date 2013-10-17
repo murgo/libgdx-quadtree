@@ -30,7 +30,7 @@ public class PeriodicLogger
         intervalInSeconds = interval;
         startTime = System.currentTimeMillis();
 
-        loggingActions = new Array<>(true, 10);
+        loggingActions = new Array<LoggingAction>(true, 10);
     }
 
     public void log()
