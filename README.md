@@ -13,7 +13,7 @@ Certain environment variables need to be set. Refer to the [LibGDX Prerequisites
   * `JAVA_HOME` (JDK installation directory)
   * `ANDROID_HOME` (Android SDK installation directory) 
 
-#### Grab the proper LibGDX and other dependencies
+#### Grab LibGDX binaries and other dependencies
 
 In order to manage dependencies and allow for other interesting build/development related tasks, parts of the [LibGDX Gradle Template](https://github.com/libgdx/libgdx-gradle-template) have been leveraged. Based on [Gradle](http://www.gradle.org/), this ensures that all 3rd party dependencies are kept up-to-date and prevents the need for JARs and IDE-related files to be in source control.  This also allows developers to work with the source in whatever environment they feel most comfortable with.
 
