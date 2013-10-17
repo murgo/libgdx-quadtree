@@ -2,6 +2,7 @@
 
 # Package Files #
 *.jar
+!gradle/wrapper/gradle-wrapper.jar
 *.war
 *.ear
 
@@ -38,3 +39,11 @@ local.properties
 
 # PDT-specific
 .buildpath
+
+# gradle-specific
+.gradle/
+build/
+bin/
+out/
+gen/
+android/libs/
