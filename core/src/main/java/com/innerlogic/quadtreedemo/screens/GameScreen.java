@@ -76,7 +76,6 @@ public class GameScreen implements Screen
     // The number of rays emitted for a "light", as well as their length. This is used in a 360 degree fashion, so the higher, the higher the precision
     // but higher fill rate as well. Needs to be power of 2
     private int lightSize = 512;
-    private float upScale = 1f;
 
     private FrameBuffer occludersFBO;
     private FrameBuffer shadowMapFBO;
@@ -332,7 +331,6 @@ public class GameScreen implements Screen
         _game.batch.setShader(shadowMapShader);
         _game.batch.begin();
         shadowMapShader.setUniformf("lightCastLength", lightSize);
-        shadowMapShader.setUniformf("upScale", upScale);
 
         // Reset our camera to the FBO size
         _game.camera.setToOrtho(false, shadowMapFBO.getWidth(), shadowMapFBO.getHeight());
@@ -363,10 +361,8 @@ public class GameScreen implements Screen
         // Set the color of the light
         _game.batch.setColor(Color.WHITE);
 
-        float finalSize = lightSize * upScale;
-
         //draw centered on light position
-        _game.batch.draw(shadowMap1D.getTexture(), mx-finalSize/2f, my-finalSize/2f, finalSize, finalSize);
+        _game.batch.draw(shadowMap1D.getTexture(), mx-lightSize/2, my-lightSize/2, lightSize, lightSize);
 
         // Flush the batch before swapping shaders
         _game.batch.end();
