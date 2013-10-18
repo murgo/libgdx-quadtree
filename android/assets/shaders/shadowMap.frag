@@ -48,8 +48,8 @@ void main(void)
         //
         // Look at: http://en.wikipedia.org/wiki/Polar_coordinate_system
         //
-        // x = r * cos(theta)  [cos(0)=1 cos(90)=0 cos(180)=-1 cos(270)=0]
-        // y = r * sin(theta)  [sin(0)=0 sin(90)=1 sin(180)=0 sin(270)=-1]
+        // NOTE: The calculation results in being -PI radians rotated, moving clockwise back to PI radians.
+        // This is useful later when rendering the shadows so that we can index the 1D array from 0-1 on the TexCoord.x axis.
         vec2 polarToRectCoords = vec2(-r * sin(theta), -r * cos(theta))/2.0 + 0.5;
 
         // Sample the fragment at the calculated rect coordinates from the occlusion texture
