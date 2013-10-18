@@ -32,17 +32,19 @@ void main(void)
 
         // Polar coordinates are represented as (radial, theta), which is the length out from an origin and how much to rotate from that point. Tersely, (r, theta)
 
-        // Calculate a theta from PI/2 (90 deg), increasing clockwise until back at PI/2 (90 degree)
+        // Calculate a theta from PI/2 (90 deg), increasing clockwise until back at PI/2 (90 degree).
+        // NOTE: We use the X because we want to rotate a bit for every X interval and iterating outward based on the Y
         //
         // 3PI/2 + -1PI = 3PI/2 - PI = PI/2
         // 3PI/2 + 1PI = PI/2
         float theta = (PI * 1.5) + (normalizedTexCoords.x * PI);
 
         // Calculate a radial between 0 and 1
+        // NOTE: We use the Y to go outward because we rotate for every X interval of the texture coordinates
         float r = (1.0 + normalizedTexCoords.y) * 0.5;
 
         // Convert from Polar coordinates to Rectangular (Cartesian) coordinates in order to
-        // sample from the occlusion texture.
+        // sample from the occlusion texture. Also, put back into [0,1] space
         //
         // Look at: http://en.wikipedia.org/wiki/Polar_coordinate_system
         //
@@ -53,13 +55,13 @@ void main(void)
         // Sample the fragment at the calculated rect coordinates from the occlusion texture
         vec4 sampledFragment = texture2D(u_texture, polarToRectCoords);
 
-        // The current distance is how far from the top we've come
+        // The current distance is how far from the center we've come
         float dst = (y / lightCastLength) / upScale;
 
-        // If we've hit an opaque fragment/pixel (occluder), then get new distance
+        // If we come across fragment/pixel with a greater opacity value than our THRESHOLD, attempt to store the distance.
         // If the new distance is below the current, then we'll use that for our ray
-        float caster = sampledFragment.a;
-        if (caster > THRESHOLD)
+        float fragmentOpacity = sampledFragment.a;
+        if (fragmentOpacity > THRESHOLD)
         {
             distance = min(distance, dst);
         }
