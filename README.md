@@ -3,7 +3,7 @@ libgdx-quadtree
 
 A very simple implementation of a Quadtree in LibGDX.
 
-###How To Get Started
+### How To Get Started
 
 First, clone the repo to your desktop or download and extract the master [ZIP](https://github.com/innerlogic/libgdx-quadtree/archive/master.zip) file.
 
