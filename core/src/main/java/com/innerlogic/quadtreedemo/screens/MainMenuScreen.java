@@ -15,7 +15,7 @@ import com.innerlogic.quadtreedemo.QuadtreeDemo;
 public class MainMenuScreen implements Screen
 {
     // Text for the main menu
-    private final static String WELCOME_TEXT = "Welcome to my Quadtree demo!";
+    private final static String WELCOME_TEXT = "Welcome to the quadtree demo!";
     private final static String CLICK_TO_BEGIN_TEXT = "Click anywhere to begin!";
 
     // Reference to main game object
