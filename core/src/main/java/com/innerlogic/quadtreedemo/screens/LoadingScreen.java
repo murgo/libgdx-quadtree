@@ -2,7 +2,6 @@ package com.innerlogic.quadtreedemo.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.innerlogic.quadtreedemo.QuadtreeDemo;
@@ -28,7 +27,6 @@ public class LoadingScreen implements Screen
 
         // Tell the asset manager what needs to be loaded
         _game.assetManager.load(QuadtreeDemo.TEXTURE_BLOCK, Texture.class);
-        _game.assetManager.load(QuadtreeDemo.MUSIC_RAIN, Music.class);
     }
 
     @Override
@@ -82,7 +80,7 @@ public class LoadingScreen implements Screen
     @Override
     public void pause()
     {
-        // On Android, this is called when home button is pressed or context is otherwised switch (Incoming  call, etc)
+        // On Android, this is called when home button is pressed or context is otherwise switched (Incoming  call, etc)
         // On Desktop, this is called just before dispose() when exiting the application.
         //
         // It is typically a good place to save the game state.

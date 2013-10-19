@@ -30,7 +30,6 @@ public class QuadtreeDemo extends Game
     public final static String TEXTURE_BLOCK_1 = "textures/block_1x1.png";
 
     public final static String TEXTURE_BLOCK = TEXTURE_BLOCK_8;
-    public final static String MUSIC_RAIN = "music/rain.mp3";
 
     // Our AssetManager! Very important!
     public AssetManager assetManager;
@@ -57,13 +56,9 @@ public class QuadtreeDemo extends Game
         shapeRenderer = new ShapeRenderer();
         font = new BitmapFont();
 
-        // Set up camera
-        float w = Gdx.graphics.getWidth();
-        float h = Gdx.graphics.getHeight();
-
         // Create and set up the camera
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, w, h); // The camera's dimensions mirror viewport's
+        camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight()); // The camera's dimensions mirror viewport's
 
         // Set the initial screen of our game to an instance the LoadingScreen
         this.setScreen(new LoadingScreen(this));
