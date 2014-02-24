@@ -2,19 +2,22 @@ apply plugin: "java"
 apply plugin: "application"
 
 sourceCompatibility = 1.6
-mainClassName = "com.innerlogic.quadtreedemo.desktop.DesktopLauncher"
+mainClassName = "com.innerlogic.quadtreedemo.client.GwtLauncher"
 sourceSets.main.java.srcDirs = [ "src/" ]
 sourceSets.main.resources.srcDirs = [file("../android/assets").getAbsolutePath()]
 
+// Helps gwt find the proper .gwt.xml files.
+sourceSets.main.compileClasspath += files(project(':core').sourceSets.main.allJava.srcDirs)
+
 // idea doesn't like relative paths outside of content root...
 tasks.ideaModule.doFirst {
-	sourceSets.main.resources.srcDirs = [] 
+    sourceSets.main.resources.srcDirs = []
 }
 
 eclipse.project {
-    name = appName + "-desktop"
+    name = appName + "-gwt"
 }
 
 run {
-  ignoreExitValue = true
+    ignoreExitValue = true
 }

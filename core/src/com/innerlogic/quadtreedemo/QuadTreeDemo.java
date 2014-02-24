@@ -1,13 +1,5 @@
 package com.innerlogic.quadtreedemo;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Taylor
- * Date: 10/8/13
- * Time: 10:21 PM
- * To change this template use File | Settings | File Templates.
- */
-
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
@@ -17,7 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.innerlogic.quadtreedemo.screens.LoadingScreen;
 
-public class QuadtreeDemo extends Game
+public class QuadTreeDemo extends Game
 {
     // Easier ways to reference file paths
     // TODO May be better in Enum or other data structure

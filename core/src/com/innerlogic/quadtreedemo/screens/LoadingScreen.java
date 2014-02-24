@@ -1,10 +1,10 @@
 package com.innerlogic.quadtreedemo.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
-import com.innerlogic.quadtreedemo.QuadtreeDemo;
+import com.innerlogic.quadtreedemo.QuadTreeDemo;
 
 /**
  * Created with IntelliJ IDEA.
@@ -13,20 +13,20 @@ import com.innerlogic.quadtreedemo.QuadtreeDemo;
  * Time: 10:24 PM
  * To change this template use File | Settings | File Templates.
  */
-public class LoadingScreen implements Screen
+public class LoadingScreen extends ScreenAdapter
 {
     // Text for loading
     private final static String LOADING_TEXT = "Loading... %d%% Complete";
 
     // Reference to main game object
-    private final QuadtreeDemo _game;
+    private final QuadTreeDemo _game;
 
-    public LoadingScreen(final QuadtreeDemo game)
+    public LoadingScreen(final QuadTreeDemo game)
     {
         _game = game;
 
         // Tell the asset manager what needs to be loaded
-        _game.assetManager.load(QuadtreeDemo.TEXTURE_BLOCK, Texture.class);
+        _game.assetManager.load(QuadTreeDemo.TEXTURE_BLOCK, Texture.class);
     }
 
     @Override
@@ -57,49 +57,6 @@ public class LoadingScreen implements Screen
         _game.font.draw(_game.batch, String.format(LOADING_TEXT, Float.valueOf(_game.assetManager.getProgress()).intValue()), 10, 25);
 
         _game.batch.end();
-    }
-
-    @Override
-    public void resize(int width, int height)
-    {
-        // Do nothing (For now)
-    }
-
-    @Override
-    public void show()
-    {
-        // Do nothing (For now)
-    }
-
-    @Override
-    public void hide()
-    {
-        // Do nothing (For now)
-    }
-
-    @Override
-    public void pause()
-    {
-        // On Android, this is called when home button is pressed or context is otherwise switched (Incoming  call, etc)
-        // On Desktop, this is called just before dispose() when exiting the application.
-        //
-        // It is typically a good place to save the game state.
-
-        // Do nothing (For now)
-    }
-
-    @Override
-    public void resume()
-    {
-        // Only called on Android, when the application resumes from the paused state.
-
-        // Do nothing (For now)
-    }
-
-    @Override
-    public void dispose()
-    {
-        // Do nothing (For now)
     }
 }
 

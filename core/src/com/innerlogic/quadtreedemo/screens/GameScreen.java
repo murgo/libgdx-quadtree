@@ -1,7 +1,7 @@
 package com.innerlogic.quadtreedemo.screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
-import com.innerlogic.quadtreedemo.QuadtreeDemo;
+import com.innerlogic.quadtreedemo.QuadTreeDemo;
 import com.innerlogic.quadtreedemo.collision.QuadTreeNode;
 import com.innerlogic.quadtreedemo.entities.SpriteEntity;
 import com.innerlogic.quadtreedemo.logging.LoggingAction;
@@ -22,10 +22,10 @@ import com.innerlogic.quadtreedemo.logging.PeriodicLogger;
  * Date: 10/8/13
  * Time: 10:23 PM
  */
-public class GameScreen implements Screen
+public class GameScreen extends ScreenAdapter
 {
     // Reference to main game object
-    private final QuadtreeDemo _game;
+    private final QuadTreeDemo _game;
 
     // --------------------
     // Game Entities
@@ -58,7 +58,7 @@ public class GameScreen implements Screen
     private QuadTreeNode quadTree;
     private Array<SpriteEntity> entitiesToCheck;
 
-    public GameScreen(final QuadtreeDemo game)
+    public GameScreen(final QuadTreeDemo game)
     {
         _game = game;
 
@@ -123,7 +123,7 @@ public class GameScreen implements Screen
     // TODO Probably can be added elsewhere
     private SpriteEntity generateValidBlock()
     {
-        SpriteEntity block = new SpriteEntity(_game.assetManager.get(QuadtreeDemo.TEXTURE_BLOCK, Texture.class));
+        SpriteEntity block = new SpriteEntity(_game.assetManager.get(QuadTreeDemo.TEXTURE_BLOCK, Texture.class));
         block.setPosition(MathUtils.random(0, screenWidth - block.getWidth()), MathUtils.random(0, screenHeight - block.getHeight()));
         block.setVelocity(MathUtils.random(-1.0f, 1.0f), MathUtils.random(-1.0f, 1.0f));
         block.setSpeed(MathUtils.random(20, 200));
@@ -176,49 +176,6 @@ public class GameScreen implements Screen
 
         // Lastly, attempt the periodic log
         periodicLogger.log();
-    }
-
-    @Override
-    public void resize(int width, int height)
-    {
-        // Do nothing (For now)
-    }
-
-    @Override
-    public void show()
-    {
-        // Do nothing (For now)
-    }
-
-    @Override
-    public void hide()
-    {
-        // Do nothing (For now)
-    }
-
-    @Override
-    public void pause()
-    {
-        // On Android, this is called when home button is pressed or context is otherwise switched (Incoming  call, etc)
-        // On Desktop, this is called just before dispose() when exiting the application.
-        //
-        // It is typically a good place to save the game state.
-
-        // Do nothing (For now)
-    }
-
-    @Override
-    public void resume()
-    {
-        // Only called on Android, when the application resumes from the paused state.
-
-        // Do nothing (For now)
-    }
-
-    @Override
-    public void dispose()
-    {
-        // Disposal happens within the AssetManager, so nothing to here
     }
 
     // ------------------------
