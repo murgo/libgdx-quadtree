@@ -12,7 +12,6 @@ public class AndroidLauncher extends AndroidApplication
     {
         super.onCreate(savedInstanceState);
         AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-        config.useGL20 = true;
         initialize(new QuadTreeDemo(), config);
     }
 }

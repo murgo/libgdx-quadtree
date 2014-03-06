@@ -11,7 +11,6 @@ public class DesktopLauncher
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 
         config.title = "quadtree-demo";
-        config.useGL20 = true;
         config.width = 720;
         config.height = 720;
 

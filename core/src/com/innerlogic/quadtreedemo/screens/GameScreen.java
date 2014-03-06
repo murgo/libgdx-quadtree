@@ -3,7 +3,7 @@ package com.innerlogic.quadtreedemo.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.MathUtils;
@@ -147,8 +147,8 @@ public class GameScreen extends ScreenAdapter
         _game.camera.update();
 
         // Clear the backbuffer (Dark blue-green)
-        Gdx.gl.glClearColor(0, 0.15f, 0.2f, 1);
-        Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+        Gdx.gl20.glClearColor(0, 0.15f, 0.2f, 1);
+        Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         updateEntities(delta);
 

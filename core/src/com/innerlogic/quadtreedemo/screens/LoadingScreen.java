@@ -2,7 +2,7 @@ package com.innerlogic.quadtreedemo.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.innerlogic.quadtreedemo.QuadTreeDemo;
 
@@ -45,8 +45,8 @@ public class LoadingScreen extends ScreenAdapter
         }
 
         // Clear the backbuffer (Black)
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+        Gdx.gl20.glClearColor(0, 0, 0, 1);
+        Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         // Set the sprite batch to use the camera's combined projection/view matrix
         _game.batch.setProjectionMatrix(_game.camera.combined);
