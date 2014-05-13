@@ -109,7 +109,7 @@ public class QuadTreeNode
         boolean topQuadrant = entity.getY() > BOUNDS_CENTER.y;
 
         // Object can completely fit within the bottom quadrants
-        boolean bottomQuadrant = entity.getY() + entity.getWidth() < BOUNDS_CENTER.y;
+        boolean bottomQuadrant = entity.getY() + entity.getHeight() < BOUNDS_CENTER.y;
 
         // Object can completely fit within the left quadrants
         if(entity.getX() < BOUNDS_CENTER.x && entity.getX() + entity.getWidth() < BOUNDS_CENTER.x)
